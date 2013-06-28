@@ -22,7 +22,7 @@ brew install readline
 **NB** Im using ruby 1.9.3-p0 under rbenv with ruby-build already installed. If your setup is not like this then I suggest you read [the more detailed instructions for installing Readline](https://github.com/guard/guard/wiki/Add-Readline-support-to-Ruby-on-Mac-OS-X)
 
 
-Now add in the gems to the `:development` group of your Gemfile.
+Now add in the gems to the `:development, :test` group of your Gemfile.
 ```ruby
 group :development, :test do
   gem "rb-readline"
@@ -33,15 +33,17 @@ group :development, :test do
 end
 ```
 
-Then adjust your Guardfile to make use of Zeus:
+Run `bundle`
 
-add zeus to spec options:
+Then adjust your Guardfile to harness Zeus by switching on the option in guard-rspec:
+```ruby
+guard 'rspec', :zeus => true do
+  #
+  # Various guard directives
+  #
+end
+```
 
-guard 'rspec', :all_on_start => false, :all_after_pass => false, :zeus => true do
-
-:wqa
-
-bundle
 
 new term window => zeus start
 
