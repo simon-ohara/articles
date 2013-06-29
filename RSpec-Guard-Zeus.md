@@ -48,7 +48,7 @@ First, exit Guard if you already have it running
 [1] guard(main)> e
 ```
 
-Guard works from your Gemfile dependencies so Zeus needs to be referened there, even though you may have Zeus installed globally.
+Guard works from your Gemfile dependencies so Zeus needs to be referenced there, even though you may have Zeus installed globally.
 ```ruby
 group :development, :test do
   gem "rb-readline"
@@ -73,7 +73,7 @@ In one term window start the Zeus server
 zeus start
 ```
 
-Then, in anohter term window run Guard as normal
+Then, in another term window run Guard as normal
 ```bash
 bundle exec guard
 ```
