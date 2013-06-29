@@ -7,9 +7,9 @@ Hitting enter would run all the tests fine - but this was a manual step and I di
 I had a look at the docs in [the Guard README](https://github.com/guard/guard#installation) and under **Installation** it says:
 >If you are on Mac OS X and have problems with either Guard not reacting to file changes or Pry behaving strange, then you should add proper Readline support to Ruby on Mac OS X.
 
-So it seems that somewhere down the line either in an update of OSX or Guard the dependency for Readline has either been created or broken. I also noticed through my search for a solution to this that [guard-rspec](https://github.com/guard/guard-rspec) now has support for [zeus](https://github.com/burke/zeus) which would help the automation be even quicker!
+So it seems that somewhere down the line either in an update of OSX or Guard the dependency for Readline has either been created or broken. Heres how I rectified it:
 
-Heres what I did:
+###Adding Readline Support
 
 First of all make sure XCode is up-to-date in the AppStore.
 
@@ -19,7 +19,7 @@ Then make sure brew is up-to-date and then install Readline
 brew update
 brew install readline
 ```
-**NB** Im using ruby 1.9.3-p0 under rbenv with ruby-build already installed. If your setup is not like this then I suggest you read [the more detailed instructions for installing Readline](https://github.com/guard/guard/wiki/Add-Readline-support-to-Ruby-on-Mac-OS-X)
+**NB** Im using ruby v1.9.3-p0 under [rbenv](https://github.com/sstephenson/rbenv) with [ruby-build](https://github.com/sstephenson/ruby-build#installing-with-homebrew-for-os-x-users) already installed. If your setup is not like this then I suggest you read [the more detailed instructions for installing Readline](https://github.com/guard/guard/wiki/Add-Readline-support-to-Ruby-on-Mac-OS-X)
 
 
 Now add in the gems to the `:development, :test` group of your Gemfile.
@@ -33,9 +33,18 @@ group :development, :test do
 end
 ```
 
-Run `bundle`
+Run `bundle` then `guard` and you should notice the automagic has returned when editing a spec file or the file that it is testing.
 
-Then adjust your Guardfile to harness Zeus by switching on the option in guard-rspec:
+```bash
+bundle
+bundle exec guard
+```
+
+###Hooking into Zeus
+
+I also noticed through my search for a solution to this that [guard-rspec](https://github.com/guard/guard-rspec) now has support for [zeus](https://github.com/burke/zeus) which would help the automation be even quicker!
+
+Adjust your Guardfile to harness Zeus by switching on the option in guard-rspec:
 ```ruby
 guard 'rspec', :zeus => true do
   #
@@ -44,7 +53,14 @@ guard 'rspec', :zeus => true do
 end
 ```
 
+In one term window start the zeus server
+```bash
+zeus start
+```
 
-new term window => zeus start
+Then, in anohter term window run guard as normal
+```bash
+bundle exec guard
+```
 
-be guard
+This will allow each test to run automatically after saving without having to boot up the rails app in the background each time.
