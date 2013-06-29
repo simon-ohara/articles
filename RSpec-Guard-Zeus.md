@@ -26,7 +26,6 @@ Now add in the gems to the `:development, :test` group of your Gemfile.
 ```ruby
 group :development, :test do
   gem "rb-readline"
-  gem "zeus"
   #
   # other gems
   #
@@ -44,6 +43,22 @@ bundle exec guard
 
 I also noticed through my search for a solution to this that [guard-rspec](https://github.com/guard/guard-rspec) now has support for [zeus](https://github.com/burke/zeus) which would help the automation be even quicker!
 
+First, exit Guard if you already have it running
+```bash
+[1] guard(main)> e
+```
+
+Guard works from your Gemfile dependencies so Zeus needs to be referened there, even though you may have Zeus installed globally.
+```ruby
+group :development, :test do
+  gem "rb-readline"
+  gem "zeus"
+  #
+  # other gems
+  #
+end
+```
+
 Adjust your Guardfile to harness Zeus by switching on the option in guard-rspec:
 ```ruby
 guard 'rspec', :zeus => true do
@@ -53,12 +68,12 @@ guard 'rspec', :zeus => true do
 end
 ```
 
-In one term window start the zeus server
+In one term window start the Zeus server
 ```bash
 zeus start
 ```
 
-Then, in anohter term window run guard as normal
+Then, in anohter term window run Guard as normal
 ```bash
 bundle exec guard
 ```
