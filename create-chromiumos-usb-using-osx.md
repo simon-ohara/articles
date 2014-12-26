@@ -1,10 +1,13 @@
 ## Creating 
 
+
 Install p7zip
 http://superuser.com/a/667076/402128
 
+
 Download latest build (from Arnold The Bat)
 http://chromium.arnoldthebat.co.uk/index.php?dir=daily%2F
+
 
 Unzip Image
 ```
@@ -14,7 +17,11 @@ cd ChromeOS
 7z x ~/Downloads/<<downloaded-zipped-image>>.7z
 ```
 
+
 Find out the file of the USB Drive
+
+* Open `System Information`
+* In the tree fins storage and the USB drive
 
 
 Install onto USB drive
