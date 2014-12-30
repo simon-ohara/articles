@@ -1,20 +1,18 @@
 ## Creating 
 
 
-Install p7zip
-http://superuser.com/a/667076/402128
+Install [p7zip](http://superuser.com/a/667076/402128)
 
 
-Download a `<<zipped-image>>` of the latest build (from Arnold The Bat)
-http://chromium.arnoldthebat.co.uk/index.php?dir=daily%2F
+Download a `<<zipped-image>>` of the [latest build](http://chromium.arnoldthebat.co.uk/index.php?dir=daily%2F) (from Arnold The Bat)
 
 
-Unzip Image
+Unzip the image using p7zip
 ```
-cd Development/
-mkdir ChromeOS
-cd ChromeOS
-7z x ~/Downloads/<<zipped-image>>.7z
+$ cd Development/
+$ mkdir ChromeOS
+$ cd ChromeOS
+$ 7z x ~/Downloads/<<zipped-image>>.7z
 ```
 
 You will now have an `<<image-file>>.img`
@@ -23,7 +21,7 @@ We now want to install this image onto a USB Flash Drive. Ensure you have one co
 
 Find BSD file identifier for the flash drive to get `<<image-destination>>`
 ```
-diskutil list
+$ diskutil list
 
 /dev/disk0
    #:                       TYPE NAME                    SIZE       IDENTIFIER
@@ -42,10 +40,10 @@ diskutil list
 
 In this example `<<image-destination>>` is `disk2`
 
-Install onto USB drive
+Use the `dd` command to install the image onto the flash drive. **WARNING** this will erase all existing data on the targetted volume - in this case the entire flash drive.
 `sudo dd if=<<image-file>>.img of=/dev/<<image-destination>>`
 
-This may take some time depending on the spec of you Mac. Mine took arounf 50/60mins to complete.
+This may take some time depending on the spec of you Mac. Mine took around 50/60mins to complete.
 
 
 
