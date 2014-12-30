@@ -1,5 +1,6 @@
-## Creating 
+## Installing Chromium OS on an old Laptop
 
+The laptop I was installing on was a [Toshiba Satellite C660D](http://www.toshiba.co.uk/discontinued-products/satellite-c660d-19x/)
 
 Install [p7zip](http://superuser.com/a/667076/402128)
 
@@ -10,8 +11,8 @@ Download a `<<zipped-image>>` of the [latest build](http://chromium.arnoldthebat
 Unzip the image using p7zip
 ```
 $ cd Development/
-$ mkdir ChromeOS
-$ cd ChromeOS
+$ mkdir ChromiumOS
+$ cd ChromiumOS
 $ 7z x ~/Downloads/<<zipped-image>>.7z
 ```
 
@@ -46,6 +47,15 @@ $ sudo dd if=<<image-file>>.img of=/dev/<<image-destination>>
 ```
 
 This may take some time depending on the spec of you Mac. Mine took around 50/60mins to complete.
+
+Once complete you can connect your USB to the machine on which you wish to run ChromiumOS. You will need to enter the Boot List or Setup menus to select USB as the boot drive so that it runs from the flash drive.
+
+On first run Chromium takes you through a few setup steps. The first is selecting your language and keyboard layout, together with you preferred network (as almost everything in UI thereafter requires a connection to the internet). In my case a relevant driver for wifi didnt come with the image and so I was unable to select a network. If you are experiencing something similar you have two options (besides building your own ChromiumOS image):
+
+1. Connect to a router with an ethernet cable
+2. Use another USB drive to acquire the relevant drivers using a different machine
+
+
 
 
 
