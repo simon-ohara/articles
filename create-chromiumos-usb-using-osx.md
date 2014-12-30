@@ -41,7 +41,9 @@ $ diskutil list
 In this example `<<image-destination>>` is `disk2`
 
 Use the `dd` command to install the image onto the flash drive. **WARNING** this will erase all existing data on the targetted volume - in this case the entire flash drive.
-`sudo dd if=<<image-file>>.img of=/dev/<<image-destination>>`
+```
+$ sudo dd if=<<image-file>>.img of=/dev/<<image-destination>>
+```
 
 This may take some time depending on the spec of you Mac. Mine took around 50/60mins to complete.
 
