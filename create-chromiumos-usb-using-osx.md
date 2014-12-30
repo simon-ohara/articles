@@ -1,8 +1,12 @@
-# Installing Chromium OS on an old laptop
+# Installing ChromiumOS on an old laptop
 
 The old laptop I was installing on was a [Toshiba Satellite C660D](http://www.toshiba.co.uk/discontinued-products/satellite-c660d-19x/)
 
 ## Creating the Bootable Flash Drive
+
+The first step is to create a bootable flash drive of ChromiumOS so that we can configure it for the old laptop.
+
+### Get a ChromiumOS Image
 
 1. Install [p7zip](http://superuser.com/a/667076/402128)
 
@@ -17,6 +21,8 @@ $ 7z x ~/Downloads/<<zipped-image>>.7z
 ```
 
 You will now have an `<<image-file>>.img`
+
+
 
 4. We now want to install this image onto a USB Flash Drive. Ensure you have one connected and that you can read/write to it. **The drive should be atleast 4Gb.**
 
@@ -39,9 +45,9 @@ $ diskutil list
    1:             Windows_FAT_32 USB2                    7.8 GB     disk2s1
 ```
 
-In this example `<<image-destination>>` is `disk2`
 
-6. Use the `dd` command to install the image onto the flash drive. **WARNING** this will erase all existing data on the targetted volume - in this case the entire flash drive.
+
+6. Use the `dd` command to install the image onto the flash drive. In this example `<<image-destination>>` is `disk2`. **WARNING** this will erase all existing data on the targetted volume - in this case the entire flash drive.
 ```
 $ sudo dd if=<<image-file>>.img of=/dev/<<image-destination>>
 ```
