@@ -4,11 +4,11 @@ The old laptop I was installing on was a [Toshiba Satellite C660D](http://www.to
 
 ## Creating the Bootable Flash Drive
 
-Install [p7zip](http://superuser.com/a/667076/402128)
+1. Install [p7zip](http://superuser.com/a/667076/402128)
 
-Download a `<<zipped-image>>` of the [latest build](http://chromium.arnoldthebat.co.uk/index.php?dir=daily%2F) (from Arnold The Bat). Make sure you select the correct architecture type for your old laptop. Mine was a 64bit machine so I selected the latest `Camd64OS` build. There are specific builds available for ARM and 32bit architectures.
+2. Download a `<<zipped-image>>` of the [latest build](http://chromium.arnoldthebat.co.uk/index.php?dir=daily%2F) (from Arnold The Bat). Make sure you select the correct architecture type for your old laptop. Mine was a 64bit machine so I selected the latest `Camd64OS` build. There are specific builds available for ARM and 32bit architectures.
 
-Unzip the image using p7zip
+3. Unzip the image using p7zip
 ```
 $ cd Development/
 $ mkdir ChromiumOS
@@ -18,9 +18,9 @@ $ 7z x ~/Downloads/<<zipped-image>>.7z
 
 You will now have an `<<image-file>>.img`
 
-We now want to install this image onto a USB Flash Drive. Ensure you have one connected and that you can read/write to it. **The drive should be atleast 4Gb.**
+4. We now want to install this image onto a USB Flash Drive. Ensure you have one connected and that you can read/write to it. **The drive should be atleast 4Gb.**
 
-Find BSD file identifier for the flash drive to get `<<image-destination>>`
+5. Find BSD file identifier for the flash drive to get `<<image-destination>>`
 ```
 $ diskutil list
 
@@ -41,16 +41,16 @@ $ diskutil list
 
 In this example `<<image-destination>>` is `disk2`
 
-Use the `dd` command to install the image onto the flash drive. **WARNING** this will erase all existing data on the targetted volume - in this case the entire flash drive.
+6. Use the `dd` command to install the image onto the flash drive. **WARNING** this will erase all existing data on the targetted volume - in this case the entire flash drive.
 ```
 $ sudo dd if=<<image-file>>.img of=/dev/<<image-destination>>
 ```
 
 This may take some time depending on the spec of you Mac. Mine took around 50/60mins to complete.
 
-Once complete you can connect your USB to the machine on which you wish to run ChromiumOS. You will need to enter the Boot List or Setup menus to select USB as the boot drive so that it runs from the flash drive.
-
 ## Running ChromiumOS
+
+Once complete you can connect your USB to the machine on which you wish to run ChromiumOS. You will need to enter the Boot List or Setup menus to select USB as the boot drive so that it runs from the flash drive.
 
 On first run Chromium takes you through a few setup steps. The first is selecting your language and keyboard layout, together with you preferred network (as almost everything in UI thereafter requires a connection to the internet). In my case a relevant driver for wifi didnt come with the image and so I was unable to select a network. If you are experiencing something similar you have two options (besides building your own ChromiumOS image):
 
