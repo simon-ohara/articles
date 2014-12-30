@@ -6,7 +6,7 @@ The old laptop I was installing on was a [Toshiba Satellite C660D](http://www.to
 
 1. Install [p7zip](http://superuser.com/a/667076/402128)
 
-2. Download a `<<zipped-image>>` of the [latest build](http://chromium.arnoldthebat.co.uk/index.php?dir=daily%2F) (from Arnold The Bat). Make sure you select the correct architecture type for your old laptop. Mine was a 64bit machine so I selected the latest `Camd64OS` build. There are specific builds available for ARM and 32bit architectures.
+2. Download a `<<zipped-image>>` of the [latest build](http://chromium.arnoldthebat.co.uk/index.php?dir=daily/&sort=date&order=desc) from **Arnold The Bat**. Make sure you select the correct architecture type for your old laptop. Mine was a 64bit machine so I selected the latest `Camd64OS` build. There are specific builds available for ARM and 32bit architectures.
 
 3. Unzip the image using p7zip
 ```
