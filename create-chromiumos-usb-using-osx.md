@@ -1,12 +1,12 @@
-## Installing Chromium OS on an old Laptop
+# Installing Chromium OS on an old laptop
 
-The laptop I was installing on was a [Toshiba Satellite C660D](http://www.toshiba.co.uk/discontinued-products/satellite-c660d-19x/)
+The old laptop I was installing on was a [Toshiba Satellite C660D](http://www.toshiba.co.uk/discontinued-products/satellite-c660d-19x/)
+
+## Creating the Bootable Flash Drive
 
 Install [p7zip](http://superuser.com/a/667076/402128)
 
-
-Download a `<<zipped-image>>` of the [latest build](http://chromium.arnoldthebat.co.uk/index.php?dir=daily%2F) (from Arnold The Bat)
-
+Download a `<<zipped-image>>` of the [latest build](http://chromium.arnoldthebat.co.uk/index.php?dir=daily%2F) (from Arnold The Bat). Make sure you select the correct architecture type for your old laptop. Mine was a 64bit machine so I selected the latest `Camd64OS` build. There are specific builds available for ARM and 32bit architectures.
 
 Unzip the image using p7zip
 ```
@@ -49,6 +49,8 @@ $ sudo dd if=<<image-file>>.img of=/dev/<<image-destination>>
 This may take some time depending on the spec of you Mac. Mine took around 50/60mins to complete.
 
 Once complete you can connect your USB to the machine on which you wish to run ChromiumOS. You will need to enter the Boot List or Setup menus to select USB as the boot drive so that it runs from the flash drive.
+
+## Running ChromiumOS
 
 On first run Chromium takes you through a few setup steps. The first is selecting your language and keyboard layout, together with you preferred network (as almost everything in UI thereafter requires a connection to the internet). In my case a relevant driver for wifi didnt come with the image and so I was unable to select a network. If you are experiencing something similar you have two options (besides building your own ChromiumOS image):
 
