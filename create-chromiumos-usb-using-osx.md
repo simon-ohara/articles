@@ -5,7 +5,7 @@ Install p7zip
 http://superuser.com/a/667076/402128
 
 
-Download latest build (from Arnold The Bat)
+Download a `<<zipped-image>>` of the latest build (from Arnold The Bat)
 http://chromium.arnoldthebat.co.uk/index.php?dir=daily%2F
 
 
@@ -14,14 +14,12 @@ Unzip Image
 cd Development/
 mkdir ChromeOS
 cd ChromeOS
-7z x ~/Downloads/<<downloaded-zipped-image>>.7z
+7z x ~/Downloads/<<zipped-image>>.7z
 ```
 
-You now have an `<<image-file>>.img`
+You will now have an `<<image-file>>.img`
 
-We now want to install this image onto a USB Flash Drive
-
-Ensure the flash drive is connected
+We now want to install this image onto a USB Flash Drive. Ensure you have one connected and that you can read/write to it. **The drive should be atleast 4Gb.**
 
 Find BSD file identifier for the flash drive to get `<<image-destination>>`
 ```
