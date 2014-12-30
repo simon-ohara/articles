@@ -75,9 +75,17 @@ $ touch Downloads/dmesg-output.txt
 $ dmesg > Downloads/dmesg-output.txt
 ```
 
-Press `Ctrl+Alt+F1` to return to GUI mode.
+Lets now inspect the logs:
+```
+$ vim Downloads/dmesg-output.txt
+```
 
-Open the file and search (`Ctrl+F`) for `wifi`.
+In my case I was interested in the problems with wifi so I searched for that:
+```
+/wifi
+```
+
+-- output --
 
 
 ### Installing drivers
